@@ -1,0 +1,13 @@
+{
+  "name": "fn-remodal",
+  "version": "1.0.0",
+  "main": "remodal.js",
+  "authors": [
+    "Øystein Ø. Olsen <fireneslo@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "remodal": "~1.0.5",
+    "angular": "~1.4.8"
+  }
+}
