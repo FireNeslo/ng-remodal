@@ -92,24 +92,19 @@ show the modal and give it some data as context.
 If the modal was created with a controller all keys on locals can be injected
 If no controller then the scope will be extended with the properties.
 
-### Params:
-
 * **any** *locals* - data for modal
 
 ## close(reason)
 closes the modal and resolves promise with given reason.
 
-### Params:
 * **any|Error** *reason* - resolves with the given reason or rejects with error
 
 ## accept(value)
 closes the modal and resolves promise with given reason.
 
-### Params:
 * **value** *reason* - some resolve data
 
 ## reject(value)
 closes the modal and rejects promise with given reason.
 
-### Params:
 * **string|Error** *reason* - rejection reason will be used as error message
