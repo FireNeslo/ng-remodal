@@ -87,24 +87,24 @@ brackets and as a templateUrl otherwise
 * **string** *options.scope* - parent scope for the modal
 * **variable** *options.** - any remodal options
 
-## modal.open(locals) -> Promise<reason>
+## modal.open(locals) -> Promise&lt;reason&gt;
 show the modal and give it some data as context.
 If the modal was created with a controller all keys on locals can be injected
 If no controller then the scope will be extended with the properties.
 
 * **any** *locals* - data for modal
 
-## modal.close(reason) -> Promise<reason>
+## modal.close(reason) -> Promise&lt;reason&gt;
 closes the modal and resolves promise with given reason.
 
 * **any|error** *reason* - resolves with the given reason or rejects with error
 
-## modal.accept(reason) -> Promise<reason>
+## modal.accept(reason) -> Promise&lt;reason&gt;
 closes the modal and resolves promise with given reason.
 
 * **value** *reason* - some resolve data
 
-## modal.reject(reason) -> Promise<reason>
+## modal.reject(reason) -> Promise&lt;reason&gt;
 closes the modal and rejects promise with given reason.
 
 * **string|error** *reason* - rejection reason will be used as error message
