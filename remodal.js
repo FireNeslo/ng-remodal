@@ -25,8 +25,13 @@
             return this.close(new Error(reason))
           },
           close: function close(reason) {
-            this.element.then(function(element) {
-              return element.remodal().close(reason)
+            return this.element.then(function(element) {
+              return $q(function closing(resolve) {
+                element.remodal().close(reason)
+                element.on('closed', function closed(e) {
+                  resolve(e.reason)
+                })
+              })
             })
           },
           open: function open(locals) {
