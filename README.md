@@ -97,7 +97,7 @@ If no controller then the scope will be extended with the properties.
 ## close(reason)
 closes the modal and resolves promise with given reason.
 
-* **any|Error** *reason* - resolves with the given reason or rejects with error
+* **any|error** *reason* - resolves with the given reason or rejects with error
 
 ## accept(value)
 closes the modal and resolves promise with given reason.
@@ -107,4 +107,4 @@ closes the modal and resolves promise with given reason.
 ## reject(value)
 closes the modal and rejects promise with given reason.
 
-* **string|Error** *reason* - rejection reason will be used as error message
+* **string|error** *reason* - rejection reason will be used as error message
