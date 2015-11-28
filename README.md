@@ -34,6 +34,49 @@ angular.module('app', ['remodal'])
 
 ```
 
+##API
+
+<!-- Start /home/fireneslo/Dropbox/nslo/middleware/index.js -->
+
+## remodal(options|template|templateUrl)
+If given a string the string will be used as a template if it contains angle
+brackets and as a templateUrl otherwise
+
+* **object** *options* - object containing request data
+* **string** *options.template* - the template for the modal
+* **string** *options.templateUrl* - the url to get template from.
+* **string|function** *options.controller* - give the modal a controller
+* **string** *options.controllerAs* - give the controller a scope alias
+* **string** *options.scope* - parent scope for the modal
+* **string** *options.** - any remodal options
+
+## open(locals) -> Promise<reason>
+show the modal and give it some data as context.
+If the modal was created with a controller all keys on locals can be injected
+If no controller then the scope will be extended with the properties.
+
+### Params:
+
+* **any** *locals* - data for modal
+
+## close(reason)
+closes the modal and resolves promise with given reason.
+
+### Params:
+* **any|Error** *reason* - resolves with the given reason or rejects with error
+
+## accept(value)
+closes the modal and resolves promise with given reason.
+
+### Params:
+* **value** *reason* - some resolve data
+
+## reject(value)
+closes the modal and rejects promise with given reason.
+
+### Params:
+* **string|Error** *reason* - rejection reason will be used as error message
+
 ```js
 
 angular.module('app', ['remodal'])
