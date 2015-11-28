@@ -85,7 +85,7 @@ brackets and as a templateUrl otherwise
 * **string|function** *options.controller* - give the modal a controller
 * **string** *options.controllerAs* - give the controller a scope alias
 * **string** *options.scope* - parent scope for the modal
-* **string** *options.** - any remodal options
+* **variable** *options.** - any remodal options
 
 ## open(locals) -> Promise<reason>
 show the modal and give it some data as context.
