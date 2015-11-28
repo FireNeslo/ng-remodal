@@ -34,6 +34,43 @@ angular.module('app', ['remodal'])
 
 ```
 
+```js
+
+angular.module('app', ['remodal'])
+  .factory('modalLogin', function(remodal) {
+    return remodal({
+      controller: 'LoginController',
+      templateUrl: 'templates/login.html'
+    })
+  })
+  .controller('LoginController', function($scope, $modal, $http) {
+    if($scope.auth) $scope.auth.then($modal.accept.bind($modal))
+
+    $scope.login = function(user) {
+      $scope.auth = $http.post('user/login', user)
+        .then(function(response) {
+          $scope.user = {}
+          $modal.accept(response.data)
+        })
+        .catch(function(response) {
+          $modal.reject(response.data)
+        })
+    }
+  })
+  .directive('body', function(modalLogin) {
+    return function($scope) {
+      function success(user) {
+        console.log('logged in:', user)
+      }
+      function fail() {
+        return modalLogin.open().then(success, fail)
+      }
+      modalLogin.open().then(success, fail)
+    }
+  })
+
+```
+
 ##API
 
 <!-- Start /home/fireneslo/Dropbox/nslo/middleware/index.js -->
@@ -76,40 +113,3 @@ closes the modal and rejects promise with given reason.
 
 ### Params:
 * **string|Error** *reason* - rejection reason will be used as error message
-
-```js
-
-angular.module('app', ['remodal'])
-  .factory('modalLogin', function(remodal) {
-    return remodal({
-      controller: 'LoginController',
-      templateUrl: 'templates/login.html'
-    })
-  })
-  .controller('LoginController', function($scope, $modal, $http) {
-    if($scope.auth) $scope.auth.then($modal.accept.bind($modal))
-
-    $scope.login = function(user) {
-      $scope.auth = $http.post('user/login', user)
-        .then(function(response) {
-          $scope.user = {}
-          $modal.accept(response.data)
-        })
-        .catch(function(response) {
-          $modal.reject(response.data)
-        })
-    }
-  })
-  .directive('body', function(modalLogin) {
-    return function($scope) {
-      function success(user) {
-        console.log('logged in:', user)
-      }
-      function fail() {
-        return modalLogin.open().then(success, fail)
-      }
-      modalLogin.open().then(success, fail)
-    }
-  })
-
-```
