@@ -75,7 +75,7 @@ angular.module('app', ['remodal'])
 
 <!-- Start /home/fireneslo/Dropbox/nslo/middleware/index.js -->
 
-## remodal(options|template|templateUrl)
+## remodal(options|template|templateUrl)  -> modal
 If given a string the string will be used as a template if it contains angle
 brackets and as a templateUrl otherwise
 
@@ -87,24 +87,24 @@ brackets and as a templateUrl otherwise
 * **string** *options.scope* - parent scope for the modal
 * **variable** *options.** - any remodal options
 
-## open(locals) -> Promise<reason>
+## modal.open(locals) -> Promise<reason>
 show the modal and give it some data as context.
 If the modal was created with a controller all keys on locals can be injected
 If no controller then the scope will be extended with the properties.
 
 * **any** *locals* - data for modal
 
-## close(reason)
+## modal.close(reason) -> Promise<reason>
 closes the modal and resolves promise with given reason.
 
 * **any|error** *reason* - resolves with the given reason or rejects with error
 
-## accept(value)
+## modal.accept(reason) -> Promise<reason>
 closes the modal and resolves promise with given reason.
 
 * **value** *reason* - some resolve data
 
-## reject(value)
+## modal.reject(reason) -> Promise<reason>
 closes the modal and rejects promise with given reason.
 
 * **string|error** *reason* - rejection reason will be used as error message
