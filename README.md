@@ -79,7 +79,7 @@ angular.module('app', ['remodal'])
 If given a string the string will be used as a template if it contains angle
 brackets and as a templateUrl otherwise
 
-* **object** *options* - object containing request data
+* **object** *options* - object modal options
 * **string** *options.template* - the template for the modal
 * **string** *options.templateUrl* - the url to get template from.
 * **string|function** *options.controller* - give the modal a controller
