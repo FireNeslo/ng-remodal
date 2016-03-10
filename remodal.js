@@ -1,8 +1,14 @@
 (function(root, factory){
   if (typeof define === 'function' && define.amd) {
-    define(['angular', 'remodal'], factory);
+    define(['angular', 'jquery', 'remodal'], factory);
   } else if (typeof module === 'object' && module.exports) {
-    module.exports = factory(require('angular'), require('remodal'));
+    module.exports = factory(
+      require('angular'),
+      require('jquery'),
+      require('remodal')
+    );
+  } else {
+    factory(root.angular, root.jQuery)
   }
 }(this, function(angular) {
   "use strict"
@@ -33,7 +39,7 @@
           close: function close(reason) {
             return this.element.then(function(element) {
               return $q(function closing(resolve) {
-                element.remodal().close(reason)
+                $(element).remodal().close(reason)
                 element.on('closed', function closed(e) {
                   resolve(e.reason)
                 })
@@ -52,7 +58,7 @@
               scope[options.controllerAs] = controller
             }
             return this.modal.then(function created(element) {
-              var modal = element.remodal(options), success = true
+              var modal = $(element).remodal(options), success = true
 
               element.on('cancellation', function cancel() {
                 success = false
