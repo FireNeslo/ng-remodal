@@ -1,4 +1,10 @@
-(function(global, $) {
+(function(root, factory){
+  if (typeof define === 'function' && define.amd) {
+    define(['angular', 'remodal'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory(require('angular'), require('remodal'));
+  }
+}(this, function(angular) {
   "use strict"
   angular.module('remodal', [])
     .factory('remodal', [
@@ -81,4 +87,5 @@
         }
       }
     ])
-}(window, window.jQuery))
+  return "remodal"
+}))

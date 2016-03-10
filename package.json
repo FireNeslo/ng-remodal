@@ -1,0 +1,23 @@
+{
+  "name": "ng-remodal",
+  "version": "1.0.0",
+  "description": "angular wrapper for remodal",
+  "main": "remodal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FireNeslo/ng-remodal.git"
+  },
+  "author": "Øystein Ø. Olsen <fireneslo@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FireNeslo/ng-remodal/issues"
+  },
+  "homepage": "https://github.com/FireNeslo/ng-remodal#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "remodal": "^1.0.6"
+  }
+}
